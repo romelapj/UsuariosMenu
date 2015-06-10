@@ -1,6 +1,19 @@
 <resources>
     <string name="app_name">Usuarios Menu</string>
+    <string name="text_saludo">Bienvenidos a esta app</string>
+    <string name="action_info">Información</string>
+    <string name="action_register">Registro</string>
+    <string name="action_login">Login</string>
+    <string name="title_activity_info_dialog">Información</string>
+    <string name="text_intro">Información</string>
+    <string name="text_informacion">Para acceder a la información debe estar registrado.</string>
+    <string name="title_activity_register">RegisterActivity</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="text_usuario">Ingrese el usuario</string>
+    <string name="text_password">Ingrese la  contraseña</string>
+    <string name="registro">Registrar</string>
+    <string name="text_nombre">Ingrese el nombre</string>
 </resources>
