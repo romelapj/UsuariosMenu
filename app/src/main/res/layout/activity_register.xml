@@ -15,6 +15,17 @@
         android:orientation="vertical"
         android:gravity="center"
         android:padding="40dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Registro"
+            android:textSize="40sp"
+            android:id="@+id/textView2"
+            android:textColor="@color/color_accent"
+            android:layout_gravity="center_horizontal" />
+
         <EditText
             android:id="@+id/etNombre"
             android:layout_width="match_parent"
@@ -62,7 +73,7 @@
             android:layout_height="wrap_content"
             android:text=" "
             android:id="@+id/tvErrorRegistro"
-            android:textColor="@color/color_accent"
+            android:textColor="@color/color_primary_dark"
             android:layout_gravity="center_horizontal"
             android:visibility="gone"/>
 

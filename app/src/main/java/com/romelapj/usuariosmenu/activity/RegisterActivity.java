@@ -24,10 +24,9 @@ import butterknife.InjectView;
 
 public class RegisterActivity extends AppCompatActivity {
     public static final String EXTRAS_ENDLESS_MODE = "EXTRAS_ENDLESS_MODE";
-    DataBaseApp actdbh =
+    DataBaseApp dba =
             new DataBaseApp(this);
     private SQLiteDatabase db ;
-
 
     @InjectView(R.id.etUsuario)
     EditText etUsuario;
@@ -38,9 +37,6 @@ public class RegisterActivity extends AppCompatActivity {
     @InjectView(R.id.tvErrorRegistro)
     TextView tvErrorRegistro;
 
-
-
-
     public Usuario user;
 
     @Override
@@ -48,8 +44,6 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         ButterKnife.inject(this);
-        Bundle extras = getIntent().getExtras();
-
     }
 
     public void onRegitrarUsuario(View view){
@@ -58,48 +52,14 @@ public class RegisterActivity extends AppCompatActivity {
         String password=etPassword.getText().toString();
         String nombre=etNombre.getText().toString();
         user=new Usuario(nombre,usuario,password);
-        registrarUsuario(user.getNombre(),user.getUsuario(), user.getPassword());
-
-    }
-
-
-
-
-    public void registrarUsuario(String nombre,String usuario, String password) {
-        try {
-            db = actdbh.getWritableDatabase();
-            if (db != null) {
-                ContentValues valores = new ContentValues();
-                valores.put("nombre", nombre);
-                valores.put("usuario", usuario);
-                valores.put("password", password);
-                db.insertOrThrow("usuarios", null, valores);
-                db.close();
-                onComplete();
-            }
-        }catch (SQLiteConstraintException ex){
-            Log.e("prueba", "error");
+        if(dba.onRegister(user)){
+            Intent intent=new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }else{
             onError();
         }
     }
-
-
-    public void onComplete() {
-        SharedPreferences prefs =
-                getSharedPreferences("SesionUsuario", Context.MODE_PRIVATE);
-
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putString("usuario", user.getUsuario());
-        editor.putString("password", user.getPassword());
-        editor.putString("nombre", user.getNombre());
-        editor.commit();
-
-        Intent intent=new Intent(this, LoginActivity.class);
-        startActivity(intent);
-        finish();
-
-    }
-
 
     public void onError() {
         tvErrorRegistro.setVisibility(View.VISIBLE);

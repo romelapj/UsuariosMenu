@@ -16,4 +16,11 @@
     <string name="text_password">Ingrese la  contraseña</string>
     <string name="registro">Registrar</string>
     <string name="text_nombre">Ingrese el nombre</string>
+    <string name="acceso_sesion">Iniciar sesión</string>
+    <string name="title_activity_inside">InsideActivity</string>
+    <string name="title_activity_list_user">ListUserActivity</string>
+    <string name="inside">Usted está autenticado</string>
+    <string name="action_logout">Cerrar sesión</string>
+    <string name="action_users">Usuarios</string>
+    <string name="action_inline">En linea</string>
 </resources>

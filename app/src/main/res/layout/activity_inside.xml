@@ -1,0 +1,23 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.romelapj.usuariosmenu.activity.InsideActivity">
+
+    <include
+        layout="@layout/view_toolbar"
+        android:id="@+id/tbInside" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/inside"
+        android:id="@+id/textView"
+        android:textSize="45sp"
+        android:gravity="center"
+        android:textColor="@color/color_accent"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

@@ -29,6 +29,14 @@
             android:name=".activity.LoginActivity"
             android:label="@string/title_activity_login" >
         </activity>
+        <activity
+            android:name=".activity.InsideActivity"
+            android:label="@string/title_activity_inside" >
+        </activity>
+        <activity
+            android:name=".activity.ListUserActivity"
+            android:label="@string/title_activity_list_user" >
+        </activity>
     </application>
 
 </manifest>

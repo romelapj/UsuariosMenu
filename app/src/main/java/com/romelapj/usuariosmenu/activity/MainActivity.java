@@ -1,6 +1,8 @@
 package com.romelapj.usuariosmenu.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -23,6 +25,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
         setUpToolbar();
+        SharedPreferences prefs =
+                getSharedPreferences("SesionUsuario", Context.MODE_PRIVATE);
+
+        String usuario = prefs.getString("usuario", "");
+        if(!usuario.equals("")){
+            Intent intent=new Intent(MainActivity.this, InsideActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     private void setUpToolbar() {
@@ -43,11 +54,11 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             return true;
         }else if (id == R.id.action_register) {
-            Intent intent=new Intent(this,InfoDialog.class);
+            Intent intent=new Intent(this,RegisterActivity.class);
             startActivity(intent);
             return true;
         }else if (id == R.id.action_login) {
-            Intent intent=new Intent(this,InfoDialog.class);
+            Intent intent=new Intent(this,LoginActivity.class);
             startActivity(intent);
             return true;
         }
